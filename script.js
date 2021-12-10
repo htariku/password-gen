@@ -1,9 +1,15 @@
 
+// Assignment code here
+
+
+// Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+// prompts for password criteria; length criteria 
+// length at least 8 charecters and no more than 128 charecters 
+// charecter types and confirm lowercase, uppercase, numeric, an special charecters 
 
 
-
-
+// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -11,64 +17,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-function generatePassword () {
-  var passLength = prompt("Please enter how many charecters you would like your password to be")
-  var lengthConfirm = parseInt(passLength);
-  console.log(lengthConfirm);
-  if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
-    alert ("Error. Xhoice is not valid. Please try again.");
-    return;
-  }
+// input validated and at least one charecter type should be selected 
 
-var collectionOfValids = [];
-var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
-var lowerCaseChar = "abcdefghiklmnopqrsttuvwxtz" .split("");
-var numberChar = "0123456789" .split ("");
-var specialChar = "*&^%$#@!?><{}" .split("");
-
-
-
-var lowerCaseConfirm = confirm("Do you want your password to include lowercase letters?");
-    if(lowerCaseConfirm === true) {
-        for (var i = 0; i < lowerCaseChar.length; i++) {
-            collectionOfValids.push(lowerCaseChar[i]);
-        }
-    }
-
-var upperCaseConfirm = confirm("Do you want your password to include uppercase letters?");
-    if (upperCaseConfirm === true) {
-        for (var i = 0; i < upperCaseChar.length; i++) {
-            collectionOfValids.push(upperCaseChar[i]);
-        }
-    }
-
-var numberConfirm = confirm("Do you want your password to include numbers");
-    if (numberConfirm === true) {
-        for (var i = 0; i < numberChar.length; i++) {
-            collectionOfValids.push(numberChar[i]);
-        }
-    }
-  
-var specialConfirm = confirm("Do you want your password to include special characters?");
-    if (specialConfirm === true) {
-        for (var i = 0; i < specialChar.length; i++) {
-            collectionOfValids.push(specialChar[i]);
-        }
-    }
-
- var randomPassword = "";
- for (var i = 0; i < lengthConfirm; i++) {
-     collectionOfValids[
-         Math.floor(Math.random() * collectionOfValids.length)];
-     randomPassword +=
-        collectionOfValids[
-            Math.floor(Math.random() * collectionOfValids.length)
-        ];
-    }
- return randomPassword;
-
-  }
-  generateBtn.addEventListener("click", writePassword);
-
-
-
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
