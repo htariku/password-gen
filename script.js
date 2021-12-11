@@ -5,14 +5,12 @@ var numbers = "1234567890";
 var special = "!@#$%^&*()_+=-";
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-// prompts for password criteria; length criteria
-// length at least 8 charecters and no more than 128 charecters
-// charecter types and confirm lowercase, uppercase, numeric, an special charecters
 
 function generatePassword() {
   var password = ""
   var characters = ""
 
+// pasword length must be between 8 and 128 
   var pwdLength = prompt(
     "Between 8 and 128 how many characters would you like your password to contain?"
   );
@@ -22,6 +20,7 @@ function generatePassword() {
       "Between 8 and 128 how many characters would you like your password to contain?"
     );
   }
+  // uppercase, lowecase, numbers, and special charecters to be contained in password; alert prompt will show up if they have have not chosen any charecters 
   var wantsUpper = confirm("Would you like uppercase letters?");
   var wantsLower = confirm("Would you like lowercase letters?");
   var wantsNumbers = confirm("Would you like numbers?");
@@ -34,7 +33,7 @@ function generatePassword() {
     wantsNumbers = confirm("Would you like numbers?");
     wantsSpecial = confirm("Would you like special characters?");
   }
-
+  
   if(wantsUpper) {
     characters += upper
   }
@@ -47,7 +46,7 @@ function generatePassword() {
   if(wantsSpecial) {
       characters += special
   }
-
+// for loop and math.random function, this will return a floating point to a number in the range 0 tp less than 1, with Math.floor rounding that number to the nearest whole number 
   for (var i = 0; i < pwdLength; i++) {
       password += characters.charAt(Math.floor(Math.random() * characters.length))
   }
