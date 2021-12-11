@@ -4,7 +4,7 @@
 
 Create an application where an employee can go to generate a random password based on the criteria's that they have selected. the code should have a clean and polished user interface that is responsive on mutiple screen sizes and devices. 
 
-## Deployed UR:
+## Deployed URL:
 https://htariku.github.io/password-gen/
 
 ## GitHub Repo:
